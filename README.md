@@ -11,8 +11,8 @@ Solution of the proposed problem
 ### 2. What is the topic?
 **A Genetic Algorithm to schedule task in edge computing**
 ### 3. Design decision explaining why you select:
-  1. Parameters such as the size of an initial population
-    - Initially, we select the size of population as 100, however, it can be adjusted to obtain optimal solution    
+  1. Parameters such as the size of an initial population 
+     - Initially, we select the size of population as 100, however, it can be adjusted to obtain optimal solution    
   2. Stopping criteria   
      - We stop the function either when the task is complete or exceeds the fixed time interval. 
   3. Fitness function
