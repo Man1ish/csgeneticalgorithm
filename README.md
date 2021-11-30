@@ -1,6 +1,6 @@
 ### 1. Justification of why you have chosen your topic.
  In our previous paper, **"Here, There, Anywhere: Profiling-Driven Services to Tame the Heterogeneity of Edge Applications"**, we proposed a profiling-based methodology that effectively matches edge computational tasks with the available devices to best satisfy programmer-defined non-functional requirements. In this project, I want to extend my paper and include a genetic algorithm to efficiently schedule tasks to the edge devices based on task priority and its dependency. There can be multiple tasks, and task might includes some dependency with other task as well as task can have different level of priority.  
- ![https://pandeymanish.com/images/solution.png]()
+![Solution](https://pandeymanish.com/images/solution.png)
 Solution of the proposed problem
 
 
