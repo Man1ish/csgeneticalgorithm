@@ -12,19 +12,19 @@ Solution of the proposed problem
 **A Genetic Algorithm to schedule task in edge computing**
 ### 3. Design decision explaining why you select:
   1. Parameters such as the size of an initial population.
-    Initially, we select the size of population as 100, however, it can be adjusted to obtain optimal solution    
+    - Initially, we select the size of population as 100, however, it can be adjusted to obtain optimal solution    
   2. Stopping criteria   
-     We stop the function either when the task is complete or exceeds the fixed time interval. 
+     - We stop the function either when the task is complete or exceeds the fixed time interval. 
   3. Fitness function
-    To evaluate the fitness function, we will use the sum total execution time with the proiority of tasks. 
+    - To evaluate the fitness function, we will use the sum total execution time with the proiority of tasks. 
   4. Selection operator
-     We will use the total task, total available edges, priority of each task, and task dependencies for the selection operator. 
+     - We will use the total task, total available edges, priority of each task, and task dependencies for the selection operator. 
   5. Crossover operator
-    In the crossover, we will use the product of adjacent matrics. 
+    - In the crossover, we will use the product of adjacent matrics. 
   6. Mutation operator
-    For mutation operator, we will randomly choose the task. 
+    - For mutation operator, we will randomly choose the task. 
   7. Generational selection strategy
-    For Generational selection strategy, we use roulette wheel selection, where each solution has random chances.  
+    - For Generational selection strategy, we use roulette wheel selection, where each solution has random chances.  
  ### 4. How to run your project
 ```bash
 root@manish:~$ python app.py
