@@ -18,11 +18,11 @@ Solution of the proposed problem
   3. Fitness function
      - To evaluate the fitness function, we use the sum total execution time with the proiority of tasks. 
   4. Selection operator
-     - We will use the we use roulette wheel selection, where each solution has random chances.
+     - We use roulette wheel selection, where each solution has random chances.
   5. Crossover operator
      - In the crossover, we use the product of adjacent matrics. 
   6. Mutation operator
-     - For mutation operator, we select randomly choose the task. 
+     - For mutation operator, we choose the task randomly. 
   7. Generational selection strategy
      - For Generational selection strategy, we use the Generation Replacement
  ### 4. How to run your project
