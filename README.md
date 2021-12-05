@@ -46,7 +46,7 @@
   5. Crossover operator
      - We use single point crossover
   6. Mutation operator
-     - For mutation operator, task are randomly and local modification is performed.
+     - For mutation operator, task are randomly selected and local modification is performed.
   7. Generational selection strategy
      - For Generational selection strategy, we use the Generation Replacement
  ### 4. How to run your project
