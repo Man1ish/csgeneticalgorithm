@@ -10,7 +10,8 @@
 **A Genetic Algorithm to schedule task in edge computing**
 ### 3. Design decision explaining why you select:
 
-![Solution](https://pandeymanish.com/images/solution.png) 
+![Solution](https://pandeymanish.com/images/solution.png)
+
 Here E1, E2, E3 are the edge nodes and T1, T2, T3, T4, T5, are the input task.
 
 
@@ -25,27 +26,35 @@ Here E1, E2, E3 are the edge nodes and T1, T2, T3, T4, T5, are the input task.
      -  **Maximum Running Time in seconds (maxTime):** 1200
 
 
-     > Each of the input can be modify based on the requirement of users
+
+     Each of the input can be modify based on the requirement of users
     
 
-     > **How population and individual looks like**
+**How population and individual looks like**
 
-     > [[8, 3, 1, 8, 3, 4, 2, 4, 1, 6, 9, 6, 1, 2, 6, 7, 6, 6, 8, 3, 4, 6, 6, 3, 0, 4, 5, 5, 3, 8, 0, 3, 3, 2, 2, 4, 0, 5, 7, 6, 6, 6, 4, 0, 4, 2, 8, 2, 1, 6, 3, 1, 0, 0, 5, 4, 1, 8, 9, 6, 1, 1, 2, 9, 0, 6, 7, 1, 9, 9, 6, 1, 7, 2, 2, 1, 6, 2, 9, 8, 5, 5, 1, 7, 6, 9, 1, 1, 8, 7, 9, 7, 8, 6, 8, 8, 1, 7, 1, 7, 6, 8, 2, 5, 9, 3, 0, 6, 8, 6, 3, 4, 9, 9, 4, 4, 6, 6, 7, 6, 0, 2, 8, 3, 2, 1, 3, 6, 9, 9, 4, 4, 4, 9, 1, 1, 0, 4, 3, 6, 5, 4, 6, 9, 5, 7, 7, 6, 4, 8], ......,[8, 6, 3, 0, 0, 7, 1, 3, 8, 9, 3, 5, 3, 2, 3, 5, 2, 8, 2, 8, 3, 4, 7, 4, 9, 3, 8, 4, 0, 2, 3, 3, 4, 3, 8, 3, 5, 1, 3, 1, 4, 9, 3, 4, 0, 7, 8, 9, 7, 1, 0, 1, 1, 9, 0, 4, 5, 3, 7, 5, 1, 6, 2, 9, 9, 6, 8, 4, 6, 7, 7, 0, 1, 2, 1, 9, 4, 8, 9, 4, 6, 6, 3, 4, 7, 3, 8, 1, 8, 3, 2, 0, 4, 8, 4, 8, 0, 5, 1, 4, 2, 6, 2, 9, 3, 6, 7, 2, 6, 1, 5, 6, 0, 5, 8, 4, 6, 7, 0, 4, 1, 3, 7, 5, 6, 8, 6, 2, 4, 9, 6, 9, 0, 4, 6, 7, 5, 9, 4, 0, 7, 7, 2, 6, 9, 0, 1, 5, 1, 8]]
+     [[8, 3, 1, 8, 3, 4, 2, 4, 1, 6, 9, 6, 1, 2, 6, 7, 6, 6, 8, 3, 4, 6, 6, 3, 0, 4, 5, 5, 3, 8, 0, 3, 3, 2, 2, 4, 0, 5, 7, 6, 6, 6, 4, 0, 4, 2, 8, 2, 1, 6, 3, 1, 0, 0, 5, 4, 1, 8, 9, 6, 1, 1, 2, 9, 0, 6, 7, 1, 9, 9, 6, 1, 7, 2, 2, 1, 6, 2, 9, 8, 5, 5, 1, 7, 6, 9, 1, 1, 8, 7, 9, 7, 8, 6, 8, 8, 1, 7, 1, 7, 6, 8, 2, 5, 9, 3, 0, 6, 8, 6, 3, 4, 9, 9, 4, 4, 6, 6, 7, 6, 0, 2, 8, 3, 2, 1, 3, 6, 9, 9, 4, 4, 4, 9, 1, 1, 0, 4, 3, 6, 5, 4, 6, 9, 5, 7, 7, 6, 4, 8], ......,[8, 6, 3, 0, 0, 7, 1, 3, 8, 9, 3, 5, 3, 2, 3, 5, 2, 8, 2, 8, 3, 4, 7, 4, 9, 3, 8, 4, 0, 2, 3, 3, 4, 3, 8, 3, 5, 1, 3, 1, 4, 9, 3, 4, 0, 7, 8, 9, 7, 1, 0, 1, 1, 9, 0, 4, 5, 3, 7, 5, 1, 6, 2, 9, 9, 6, 8, 4, 6, 7, 7, 0, 1, 2, 1, 9, 4, 8, 9, 4, 6, 6, 3, 4, 7, 3, 8, 1, 8, 3, 2, 0, 4, 8, 4, 8, 0, 5, 1, 4, 2, 6, 2, 9, 3, 6, 7, 2, 6, 1, 5, 6, 0, 5, 8, 4, 6, 7, 0, 4, 1, 3, 7, 5, 6, 8, 6, 2, 4, 9, 6, 9, 0, 4, 6, 7, 5, 9, 4, 0, 7, 7, 2, 6, 9, 0, 1, 5, 1, 8]]
+
+
      
-    - **Individual explanation**
-      The individual is the collection of task assigned to the particular edge devices. Suppose individual has value 8 in first place then the first task is assign to the edge device 8.
+**Individual explanation**
+
+The individual is the collection of task assigned to the particular edge devices. Suppose individual has value 8 in first place then the first task is assign to the edge device 8.
 
 
-    - **What are the input digit (0 - 9)**
-      Each input digit is the edge device id. Initially there are 10 input edge devices so the digits are from 0 to 9.
+**What are the input digit (0 - 9)**
 
-    -  **What is the length of individual**
-       The length of individual is equall to the number of task (i.e 150)
+Each input digit is the edge device id. Initially there are 10 input edge devices so the digits are from 0 to 9.
 
-    -  **What is the maximum execution time?**
-        max(sum of time taken by each edge devices)
+**What is the length of individual**
 
-    - **What is the expected output of the program?**
+The length of individual is equall to the number of task (i.e 150)
+
+
+**What is the maximum execution time?**
+
+max(sum of time taken by each edge devices)
+
+**What is the expected output of the program?**
      
       The output is
      - **Edge Device 0:** 11 15 22 33 34 41 46 58 62 71 83 85 87 89 149
