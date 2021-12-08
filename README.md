@@ -1,6 +1,7 @@
 ### 1. Justification of why you have chosen your topic.
  In our previous paper, **"[Here, There, Anywhere: Profiling-Driven Services to Tame the Heterogeneity of Edge Applications] (https://ieeexplore.ieee.org/document/9592388)"**, we proposed a profiling-based methodology that effectively matches edge computational tasks with the available devices to best satisfy programmer-defined non-functional requirements. In this project, I want to extend my paper and include a genetic algorithm to efficiently schedule tasks to the edge devices based on the execution time of the task. The main idea is to complete task in limited amount of time. 
 
+The edge computing paradigm is introduced to overcome the limitation of cloud computing by bringing storage and processing near edge devices. In edge computing, edge server needs to effectively address the scarcity of heterogeneous resources to achieve edge processing performance goals. Our previous paper manages these scarcity issues by selecting the best computing devices. This project aims to use the genetic algorithm to reduce the execution task time by selecting appropriate edge devices when there is n number of tasks.
 
 
 
@@ -12,7 +13,8 @@
 
 ![Solution](https://pandeymanish.com/images/solution.png)
 
-Here E1, E2, E3 are the edge nodes and T1, T2, T3, T4, T5, are the input task.
+In the above diagram, there are 5 tasks (T1, T2, T3, T4, and T5) and 3 edge nodes(E1, E2, and E3). The goal is to schedule task to the appropriate edge devices so that all task can be completed in limited amount of time. 
+
 
 
   1. **Input Parameter**
@@ -67,7 +69,9 @@ max(sum of time taken by each edge devices)
      - **Edge Device 7:** 0 6 18 21 24 31 47 48 77 80 91 98 99 110 113 139 144
      - **Edge Device 8:** 2 13 23 45 67 75 100 101 114 121 122 126 136 137
      - **Edge Device 9:** 27 38 40 49 50 79 81 92 93 94 103 107 141 145
-     - **Total execution time is:** 10.89s
+     - **Total execution time is :** 147.89s
+     - **Initial execution time is :** 458.62s
+     - **Best execution time is :** 398.71s
 
   2. Stopping criteria   
     The program will be stopped if one of the following crieteria is meet
@@ -79,11 +83,14 @@ max(sum of time taken by each edge devices)
      - fitness_score = max([sum of task executed Edge1, ....., Sum of tasks executed in EdgeN ]) 
 
   4. Selection operator
-     - We use tournament selection
+     - For selection operator, we merge the tournament selection with random selection
   5. Crossover operator
      - We use single point crossover
+     ![Alt text](crossover1.png?raw=true "Crossover Point")
+     ![Alt text](crossover2.png?raw=true "Single Point Crossover")
+     - 
   6. Mutation operator
-     - For mutation operator, task are randomly selected and local modification is performed.
+     - For mutation operator, we use Elitism. It choose M best individual from the parent's generation.
   7. Generational selection strategy
      - For Generational selection strategy, we use the Generation Replacement
  ### 4. How to run your project

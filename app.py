@@ -188,7 +188,8 @@ def main():
     repeat = 0
     exitLoop = True
     lastFitnessScore = 0
-
+    loopTimes = 0
+    initialScore = 0
 
 
     while exitLoop:
@@ -202,6 +203,9 @@ def main():
         sortedPopulation = sorted(
             population, key=eval_with, reverse=False)
         latestFitnessValue = fitness(executionTime, sortedPopulation[0])
+
+        if loopTimes == 0:
+            initialScore = latestFitnessValue
 
         if (latestFitnessValue == lastFitnessScore):
             repeat += 1
@@ -235,6 +239,10 @@ def main():
             # Cross Over
             if random.uniform(0, 100) <= 75:
                 crossing_point = random.randint(1, popSize - 1)
+
+                # print(aParent[::crossing_point])
+
+
                 aOffspring = aParent[:crossing_point] + bParent[crossing_point::]
                 bOffspring = bParent[:crossing_point] + aParent[crossing_point::]
 
@@ -261,6 +269,8 @@ def main():
 
         # print(population)
 
+        loopTimes += 1
+
     workingTime = time.time() - t0
 
 
@@ -274,6 +284,7 @@ def main():
 
     print('\n'.join(outputString))
     print(f"Total execution time is "+"{:.2f}".format(workingTime)+'s')
+    print(f"Initial execution time is "+"{:.2f}".format(initialScore)+'s')
     print(f"Best execution time is "+"{:.2f}".format(best_so_far)+'s')
 
 
