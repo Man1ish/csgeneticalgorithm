@@ -79,7 +79,7 @@ max(sum of time taken by each edge devices)
      - fitness_score = max([sum of task executed Edge1, ....., Sum of tasks executed in EdgeN ]) 
 
   4. Selection operator
-     - We use roulette tournament selection
+     - We use tournament selection
   5. Crossover operator
      - We use single point crossover
   6. Mutation operator
@@ -94,10 +94,10 @@ root@manish:~$ python app.py
 - The program allows to modify the following input inside main function
   - popSize = 1000
   - noOfEdge = 10
-  - noOfTask = 170
+  - noOfTask = 150
   - maxGen = 100
   - threshold = 170
-  - maxRepeat = 15
-  - maxTime = 1200
+  - maxRepeat = 10
+  - maxTime = 600
 
 

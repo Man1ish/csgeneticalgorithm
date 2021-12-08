@@ -26,6 +26,7 @@ def createIndividual(dim, edgeNumber, taskNumber):
 
 
 class Dataset():
+    # The class generate the dataset
     def __init__(self, name, noOfTask, noOfEdge):
         self.name = name
         self.noOfTask = noOfTask
@@ -53,6 +54,7 @@ class Dataset():
                 for _ in range(popSize)]
 
 
+# This function provides the maximimum execution time when task are schedule in edge devices
 def fitness(executionTime, ind):
     maxValue = max(ind)
 
@@ -74,18 +76,8 @@ def randomSelection(pop, answer):
     return aParent, bParent
 
 
-# tournament selection
-def selection(pop, scores, k=3):
-    # first random selection
-    pop_copy = copy.deepcopy(pop)
-    selection_ix = random.randint(0,len(pop))
-    for ix in random.randint(0,len(pop)):
-        # check if better (e.g. perform a tournament)
-        if scores[ix] < scores[selection_ix]:
-            selection_ix = ix
-    return pop[selection_ix]
 
-
+#Old tournament Selection Function
 def tournamentSelection(pop, executionTime):
     pop_copy = cp.deepcopy(pop)
     parents = random.choices(pop_copy, k=5)
@@ -114,7 +106,7 @@ def tournamentSelection(pop, executionTime):
     return aParent, bParent
 
 
-
+# Roulette wheel selection algorithm
 def roulette_wheel(population, fitnesses):
     num = 2
     total_fitness = float(sum(fitnesses))
@@ -134,17 +126,15 @@ def roulette_wheel(population, fitnesses):
                 break
     return selected[0], selected[1]
 
-
+#Mixture of tournament selection with random selection
 def selectionAlgorithm(pop, fitnessScore, executionTime):
     bounds = list(itertools.accumulate(
         1 / l for l in fitnessScore
     ))
 
-
-
     pick = random.random() * bounds[-1]
 
-    i = 0
+
 
     popCopy = cp.copy(pop)
     first = 1000
@@ -172,79 +162,53 @@ def selectionAlgorithm(pop, fitnessScore, executionTime):
 
 
 
-def tournament_selection(pop, executionTime):
-
-  pop_copy = cp.deepcopy(pop)
-  parents = random.choices(pop_copy, k=5)
-  # select the first indivisual
-  first = 0
-  firstIdx = 0
-  for idx in range(len(parents)):
-    f1 = fitness(executionTime, parents[idx])
-    if first < f1:
-      first = f1
-      firstIdx = idx
-
-  aParent = parents[firstIdx]
-  pop_copy.remove(parents[firstIdx])
-
-  # select the second indivisual
-  parents = random.choices(pop_copy, k=5)
-  second = 0
-  secondIdx = 0
-  for idx in range(len(parents)):
-    f1 = fitness(executionTime, parents[idx])
-    if second < f1:
-      second = f1
-      secondIdx = idx
-
-  bParent = parents[secondIdx]
-  return aParent, bParent
-
-
 
 
 def main():
-    # Population Size
-    popSize = 1000
-    maxGen = 100
-    noOfEdge = 10
-    noOfTask = 150
-    threshold = 170
-    maxRepeat = 15
-    maxTime = 60
+    popSize = 1000  # Population Size
+    maxGen = 100    # Maximum Generation
+    noOfEdge = 10   # No of Edge
+    noOfTask = 150  # No of Task
+    threshold = 170 # Maximum threshold value
+    maxRepeat = 10  # Maximum Repeat
+    maxTime = 300   # Maximum Execution time in seconds
 
+    #Generate the dataset
     d = Dataset("edge", noOfTask, noOfEdge)
     population = d.generatePopulation(popSize)
     executionTime = d.executionTime(noOfTask, noOfEdge)
 
 
+    #Initialize variables
     finalOutput = []
-
     best_so_far = 10000
     t0 = time.time()
     currentGeneration = 0
     eval_with = partial(fitness, executionTime)
-
-
     repeat = 0
     exitLoop = True
+    lastFitnessScore = 0
+
+
 
     while exitLoop:
+        #Record the fitness value
         fitnessScore = []
         for ind in population:
             score = fitness(executionTime, ind)
             fitnessScore.append(score)
 
-        # print(f"fitness score is {min(fitnessScore)}")
 
         sortedPopulation = sorted(
             population, key=eval_with, reverse=False)
-
         latestFitnessValue = fitness(executionTime, sortedPopulation[0])
-        # print(latestFitnessValue)
-        # print(sortedPopulation[0])
 
+        if (latestFitnessValue == lastFitnessScore):
+            repeat += 1
+        else:
+            repeat = 0
+
+        lastFitnessScore = latestFitnessValue
 
 
         if best_so_far > latestFitnessValue:
@@ -255,7 +219,7 @@ def main():
             print(f'Number of Generation: {currentGeneration}')
             print(f'Best results so far: {best_so_far}')
             print(f'Individual: {sortedPopulation[0]}')
-            maxRepeat = 0
+
 
 
         nextPop = cp.deepcopy(population)
@@ -265,9 +229,10 @@ def main():
 
             # selectionAlgorithm(population, fitnessScore,executionTime)
             # aParent, bParent = tournamentSelection(population, executionTime)
-            aParent, bParent = randomSelection(population, fitnessScore)
-            # aParent, bParent = selectionAlgorithm(population, fitnessScore,executionTime)
+            # aParent, bParent = randomSelection(population, fitnessScore)
+            aParent, bParent = selectionAlgorithm(population, fitnessScore,executionTime)
 
+            # Cross Over
             if random.uniform(0, 100) <= 75:
                 crossing_point = random.randint(1, popSize - 1)
                 aOffspring = aParent[:crossing_point] + bParent[crossing_point::]
@@ -279,16 +244,16 @@ def main():
 
 
             #Mutation
-            for idx in range(int(popSize/2)):
+            for idx in range(int(popSize/4)):
                 if random.uniform(0, 100) < 5:
                     newInd = sortedPopulation[idx].copy()
                     newInd[random.randint(0, noOfTask -1)] = random.choice(newInd)
+                    nextPop.append(newInd)
 
 
 
         sortedNextPop = cp.deepcopy(sorted(nextPop, key=eval_with, reverse=False))
         population = sortedNextPop[:popSize]
-        maxRepeat += 1
         eplasedTime = time.time() - t0
         if ((currentGeneration > maxGen) or (repeat > maxRepeat) or (best_so_far < threshold) or (eplasedTime > maxTime)):
             exitLoop = False
@@ -300,7 +265,7 @@ def main():
 
 
     #Shows results
-    print("="*20+" Results "+"="*20)
+    print("="*23+" Results "+"="*23)
     outputString = ["The output is"]
     for l in set(finalOutput):
         outputString.append(f"Edge Devices {l}: " + ' '.join([
@@ -308,7 +273,9 @@ def main():
         ]))
 
     print('\n'.join(outputString))
-    print('Total execution time is '+str(workingTime)+' s')
+    print(f"Total execution time is "+"{:.2f}".format(workingTime)+'s')
+    print(f"Best execution time is "+"{:.2f}".format(best_so_far)+'s')
+
 
 
 if __name__ == '__main__':
