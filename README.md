@@ -58,25 +58,26 @@ max(sum of time taken by each edge devices)
 
 **What is the expected output of the program?**
      
-      The output is
-     - **Edge Device 0:** 11 15 22 33 34 41 46 58 62 71 83 85 87 89 149
-     - **Edge Device 1:** 5 26 29 39 51 68 82 86 106 118 119 127 134 148
-     - **Edge Device 2:** 8 9 19 32 36 57 70 73 95 97 117 120 132 133 135 138 146
-     - **Edge Device 3:** 3 10 35 66 72 74 88 109 112 115 143
-     - **Edge Device 4:** 14 42 52 53 55 56 76 78 90 104 111 116 124 128 131 142
-     - **Edge Device 5:** 4 16 20 25 28 30 44 59 61 65 84 102 105 108 123 140
-     - **Edge Device 6:** 1 7 12 17 37 43 54 60 63 64 69 96 125 129 130 147
-     - **Edge Device 7:** 0 6 18 21 24 31 47 48 77 80 91 98 99 110 113 139 144
-     - **Edge Device 8:** 2 13 23 45 67 75 100 101 114 121 122 126 136 137
-     - **Edge Device 9:** 27 38 40 49 50 79 81 92 93 94 103 107 141 145
-     - **Total execution time is :** 147.89s
-     - **Initial execution time is :** 458.62s
-     - **Best execution time is :** 398.71s
+    The output is
+    Edge Devices 0: 28 32 42 46 89 90 91 92 102 114 115 142 144 148
+    Edge Devices 1: 3 6 22 25 26 38 45 52 53 63 68 73 97 107 110 126
+    Edge Devices 2: 1 9 27 30 35 40 54 58 60 113 116 121 129 132 141
+    Edge Devices 3: 14 48 50 62 94 95 103 105 118 124 131 134 147
+    Edge Devices 4: 7 47 51 59 75 78 81 93 96 100 109 119 137 139 140
+    Edge Devices 5: 0 8 12 31 36 41 49 57 70 72 77 108 143 146
+    Edge Devices 6: 10 11 17 44 64 67 80 85 86 98 101 111 117 128 130 138 149
+    Edge Devices 7: 2 5 15 24 33 37 61 65 69 83 84 88 122 123 135 145
+    Edge Devices 8: 20 29 34 39 43 56 66 74 76 82 99 104 125 133 136
+    Edge Devices 9: 4 13 16 18 19 21 23 55 71 79 87 106 112 120 127
+    Total execution time is 147.89s
+    Initial execution time is 458.62s
+    Best execution time is 398.71s
+
 
   2. Stopping criteria   
-    The program will be stopped if one of the following crieteria is meet
+    The program will be stopped if one of the following criteria is meet
      - The fitness value is greater than the input threshold.
-     - If the fitness values remains constant for more than 15 times.
+     - If the score value remains constant for more than maxRepeat input
      - If the number of generations is greater than maximum Generation 
      - We stop the function either when the task is complete or exceeds the fixed time interval. 
   3. Fitness function
