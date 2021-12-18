@@ -92,7 +92,8 @@ max(sum of time taken by each edge devices)
      - If the number of generations is greater than maximum Generation 
      - We stop the function either when the task is complete or exceeds the fixed time interval. 
   3. Fitness function
-     - fitness_score = max([sum of task executed Edge1, ....., Sum of tasks executed in EdgeN ]) 
+     
+![Solution](https://raw.githubusercontent.com/Man1ish/csgeneticalgorithm/main/fitness_function.jpg)
 
   4. Selection operator
      - For selection operator, we merge the tournament selection with random selection
@@ -102,9 +103,10 @@ max(sum of time taken by each edge devices)
      ![Alt text](crossover2.png?raw=true "Single Point Crossover")
      - 
   6. Mutation operator
-     - For mutation operator, we use Elitism. It choose M best individual from the parent's generation.
+     - For mutation operator, we use Swap 
+     
   7. Generational selection strategy
-     - For Generational selection strategy, we use the Generation Replacement
+     - For Generational selection strategy, we use the Elitism
  ### 4. How to run your project
 ```bash
 root@manish:~$ python app.py
