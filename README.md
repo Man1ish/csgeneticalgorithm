@@ -10,7 +10,7 @@ The edge computing paradigm is introduced to overcome the limitation of cloud co
 The above figure shows the task assigned to the edge devices. When the task is assigned randomly to the edge devices, we can't meet the objective of edge computing. This project aims to use the genetic algorithm to reduce the execution task time by selecting appropriate edge devices when there is n number of tasks.
 
 
-![Solution](https://raw.githubusercontent.com/Man1ish/csgeneticalgorithm/main/n_edge_computing.jpg)
+![Solution](https://raw.githubusercontent.com/Man1ish/csgeneticalgorithm/main/gn_edge_computing.jpg)
 
 
 
