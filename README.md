@@ -5,12 +5,12 @@
 
 The edge computing paradigm is introduced to overcome the limitation of cloud computing by bringing storage and processing near edge devices. In edge computing, edge server needs to effectively address the scarcity of heterogeneous resources to achieve edge processing performance goals. Our previous paper manages these scarcity issues by assigning the task to the best computing devices. 
 
-![Solution](https://pandeymanish.com/images/task-assignment.jpg)
+![Solution](https://raw.githubusercontent.com/Man1ish/csgeneticalgorithm/main/task-assignment.jpg)
 
 The above figure shows the task assigned to the edge devices. When the task is assigned randomly to the edge devices, we can't meet the objective of edge computing. This project aims to use the genetic algorithm to reduce the execution task time by selecting appropriate edge devices when there is n number of tasks.
 
 
-![Solution](https://pandeymanish.com/images/gn_edge_computing.jpg)
+![Solution](https://raw.githubusercontent.com/Man1ish/csgeneticalgorithm/main/n_edge_computing.jpg)
 
 
 
