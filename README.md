@@ -96,7 +96,11 @@ max(sum of time taken by each edge devices)
 ![Solution](https://raw.githubusercontent.com/Man1ish/csgeneticalgorithm/main/fitness_function.jpg)
 
   4. Selection operator
-     - For selection operator, we merge the tournament selection with random selection
+     - We use Tournament Selection
+     - Compared fitness value of new selected population with fitness bounds 
+     - Append random selection if new population is empty
+
+     -  For selection operator, we merge the tournament selection with random selection
   5. Crossover operator
      - We use single point crossover
      ![Alt text](crossover1.png?raw=true "Crossover Point")
